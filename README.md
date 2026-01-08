@@ -16,3 +16,6 @@ npm run build
 - `components/*`: Shared UI pieces (header, footer, links, logo).
 - `lib/i18n.ts`: Minimal i18n helpers.
 - `lib/routes.ts`: Route helpers + language swap.
+
+## Articles
+The articles list in `/[lang]/articles` is fetched from HalkTV and cached for 6 hours using Next.js `revalidate`.

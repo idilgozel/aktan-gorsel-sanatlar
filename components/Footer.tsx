@@ -25,7 +25,17 @@ export default function Footer({ lang }: { lang: Lang }) {
           </div>
           <div>
             <h4 className="section-title">{t(lang, { tr: "Sosyal", en: "Social" })}</h4>
-            <p className="muted">Instagram / Vimeo / LinkedIn</p>
+            <div className="footer-links">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                Instagram
+              </a>
+              <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer">
+                Vimeo
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            </div>
             <Link className="nav-link" href={routes(lang).kvkk}>
               {t(lang, { tr: "KVKK Aydinlatma Metni", en: "Privacy Notice" })}
             </Link>
