@@ -1,5 +1,9 @@
 import Link from "next/link";
 import Container from "../../components/Container";
+import { galleryItems } from "../../content/gallery";
+import { projects } from "../../content/projects";
+import { pages } from "../../content/pages";
+import { site } from "../../content/site";
 import { Lang, t } from "../../lib/i18n";
 import { routes } from "../../lib/routes";
 
@@ -12,43 +16,34 @@ export default function LangHome({ params }: { params: { lang: Lang } }) {
         <section className="hero">
           <div>
             <p className="hero-eyebrow">
-              {t(params.lang, {
-                tr: "Kurumsal yaratici ortakliklar icin butik bir gorsel sanatlar stüdyosu.",
-                en: "A boutique visual arts studio for corporate creative partnerships.",
-              })}
+              {t(params.lang, pages.home.eyebrow)}
             </p>
-            <h1>Aktan Gorsel Sanatlar</h1>
+            <h1>{site.brandName}</h1>
             <p className="hero-body">
-              {t(params.lang, {
-                tr: "Sinema ve tiyatro odakli yapim, sahneleme ve gorsel anlatim projeleri uretiyoruz.",
-                en: "We craft cinema and theatre projects focused on production, staging, and visual storytelling.",
-              })}
+              {t(params.lang, pages.home.heroBody)}
             </p>
             <div className="hero-actions">
               <Link className="button button-primary" href={nav.contact}>
-                {t(params.lang, { tr: "Proje Basvurusu", en: "Project Application" })}
+                {t(params.lang, pages.home.ctaPrimary)}
               </Link>
               <Link className="button button-secondary" href={nav.projects}>
-                {t(params.lang, { tr: "Projeleri Gor", en: "View Projects" })}
+                {t(params.lang, pages.home.ctaSecondary)}
               </Link>
             </div>
           </div>
           <div className="hero-card">
-            <h2 className="section-title">{t(params.lang, { tr: "Odak", en: "Focus" })}</h2>
+            <h2 className="section-title">{t(params.lang, pages.home.focusTitle)}</h2>
             <p className="muted">
-              {t(params.lang, {
-                tr: "Markalar icin sahne, film ve kurumsal hikaye anlatimini tek cati altinda topluyoruz.",
-                en: "We bring stage, film, and corporate storytelling together under one roof.",
-              })}
+              {t(params.lang, pages.home.focusBody)}
             </p>
             <div className="hero-metrics">
               <div>
                 <strong>12+</strong>
-                <span>{t(params.lang, { tr: "Yillik Deneyim", en: "Years Experience" })}</span>
+                <span>{t(params.lang, pages.home.metrics.years)}</span>
               </div>
               <div>
                 <strong>50+</strong>
-                <span>{t(params.lang, { tr: "Proje", en: "Projects" })}</span>
+                <span>{t(params.lang, pages.home.metrics.projects)}</span>
               </div>
             </div>
           </div>
@@ -56,25 +51,19 @@ export default function LangHome({ params }: { params: { lang: Lang } }) {
 
         <section className="page-section">
           <div className="section-heading">
-            <h2 className="section-title">{t(params.lang, { tr: "Secili Projeler", en: "Featured Projects" })}</h2>
-            <p className="muted">
-              {t(params.lang, {
-                tr: "Kurumlar icin urettigimiz sinema ve sahne calismalarindan ornekler.",
-                en: "Examples from our cinema and stage collaborations.",
-              })}
-            </p>
+            <h2 className="section-title">{t(params.lang, pages.home.featured.heading)}</h2>
+            {pages.home.featured.subheading ? (
+              <p className="muted">{t(params.lang, pages.home.featured.subheading)}</p>
+            ) : null}
           </div>
           <div className="card-grid">
-            {["Project 1", "Project 2", "Project 3"].map((title) => (
-              <article key={title} className="card project-card">
-                <span className="project-tag">{t(params.lang, { tr: "2024 · Kurumsal", en: "2024 · Corporate" })}</span>
-                <h3>{title}</h3>
-                <p className="muted">
-                  {t(params.lang, {
-                    tr: "Kisa bir proje aciklamasi icin yer tutucu metin.",
-                    en: "Short placeholder summary for the featured project.",
-                  })}
-                </p>
+            {projects.slice(0, 3).map((project) => (
+              <article key={project.id} className="card project-card">
+                <span className="project-tag">
+                  {project.year} · {t(params.lang, project.type)}
+                </span>
+                <h3>{t(params.lang, project.title)}</h3>
+                <p className="muted">{t(params.lang, project.shortDescription)}</p>
               </article>
             ))}
           </div>
@@ -82,17 +71,14 @@ export default function LangHome({ params }: { params: { lang: Lang } }) {
 
         <section className="page-section">
           <div className="section-heading">
-            <h2 className="section-title">{t(params.lang, { tr: "Galeri", en: "Gallery" })}</h2>
-            <p className="muted">
-              {t(params.lang, {
-                tr: "Sahne ve set arkasi gorseller icin yer tutucu galeri.",
-                en: "Placeholder gallery for stage and behind-the-scenes visuals.",
-              })}
-            </p>
+            <h2 className="section-title">{t(params.lang, pages.home.gallery.heading)}</h2>
+            {pages.home.gallery.subheading ? (
+              <p className="muted">{t(params.lang, pages.home.gallery.subheading)}</p>
+            ) : null}
           </div>
           <div className="gallery-grid">
-            {Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="gallery-tile" />
+            {galleryItems.slice(0, 6).map((item) => (
+              <div key={item.id} className="gallery-tile" aria-label={t(params.lang, item.alt)} />
             ))}
           </div>
         </section>

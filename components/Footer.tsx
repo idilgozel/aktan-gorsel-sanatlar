@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { site } from "../content/site";
 import { Lang, t } from "../lib/i18n";
 import { routes } from "../lib/routes";
 import Container from "./Container";
@@ -9,35 +10,30 @@ export default function Footer({ lang }: { lang: Lang }) {
       <Container>
         <div className="footer-grid">
           <div>
-            <h3 className="section-title">Aktan Gorsel Sanatlar</h3>
-            <p className="muted">
-              {t(lang, {
-                tr: "Kurumsal iletisim ve yaratıcı proje ortaklıgı icin bize ulasın.",
-                en: "Reach us for corporate communication and creative project partnerships.",
-              })}
-            </p>
+            <h3 className="section-title">{site.brandName}</h3>
+            <p className="muted">{t(lang, site.description)}</p>
           </div>
           <div>
-            <h4 className="section-title">{t(lang, { tr: "Iletisim", en: "Contact" })}</h4>
-            <p className="muted">hello@aktanvisual.com</p>
-            <p className="muted">+90 (000) 000 00 00</p>
-            <p className="muted">Istanbul / Ankara</p>
+            <h4 className="section-title">{t(lang, site.nav.contact)}</h4>
+            <p className="muted">{site.contact.email}</p>
+            <p className="muted">{site.contact.phone}</p>
+            <p className="muted">{t(lang, site.contact.address)}</p>
           </div>
           <div>
             <h4 className="section-title">{t(lang, { tr: "Sosyal", en: "Social" })}</h4>
             <div className="footer-links">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <a href={site.social.instagram} target="_blank" rel="noopener noreferrer">
                 Instagram
               </a>
-              <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer">
-                Vimeo
+              <a href={site.social.x} target="_blank" rel="noopener noreferrer">
+                X
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                LinkedIn
+              <a href={site.social.youtube} target="_blank" rel="noopener noreferrer">
+                YouTube
               </a>
             </div>
             <Link className="nav-link" href={routes(lang).kvkk}>
-              {t(lang, { tr: "KVKK Aydinlatma Metni", en: "Privacy Notice" })}
+              {t(lang, site.nav.kvkk)}
             </Link>
           </div>
         </div>

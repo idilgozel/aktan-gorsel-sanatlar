@@ -19,3 +19,6 @@ npm run build
 
 ## Articles
 The articles list in `/[lang]/articles` is fetched from HalkTV and cached for 6 hours using Next.js `revalidate`.
+
+## Content layer
+Edit site copy and placeholder data in `content/` (site details, pages, services, projects, gallery). Pages and shared UI read from these files.

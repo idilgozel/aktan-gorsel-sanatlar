@@ -1,4 +1,5 @@
 import Container from "../../../components/Container";
+import { pages } from "../../../content/pages";
 import { Lang, t } from "../../../lib/i18n";
 import { fetchAllArticles, getAuthorUrl, HalkTvArticle } from "../../../lib/halktv";
 
@@ -15,21 +16,12 @@ export default async function ArticlesPage({ params }: { params: { lang: Lang } 
   return (
     <main>
       <Container>
-        <h1 className="section-title">{t(params.lang, { tr: "Yazilar", en: "Articles" })}</h1>
-        <p className="muted">
-          {t(params.lang, {
-            tr: "HalkTV yazarlik sayfasindaki tum yazilar listelenir.",
-            en: "All articles from the HalkTV author page are listed here.",
-          })}
-        </p>
+        <h1 className="section-title">{t(params.lang, pages.articles.heading)}</h1>
+        {pages.articles.subheading ? <p className="muted">{t(params.lang, pages.articles.subheading)}</p> : null}
+        <p className="muted">{t(params.lang, pages.articles.sourceLabel)}</p>
         {failed || articles.length === 0 ? (
           <div className="card" style={{ marginTop: 24 }}>
-            <p className="muted">
-              {t(params.lang, {
-                tr: "Yazilar su an alinmiyor. HalkTV sayfasini ziyaret edebilirsiniz.",
-                en: "Articles could not be fetched right now. Please visit the HalkTV page.",
-              })}
-            </p>
+            <p className="muted">{t(params.lang, pages.articles.fallback)}</p>
             <a className="button button-secondary" href={getAuthorUrl()} target="_blank" rel="noopener noreferrer">
               HalkTV
             </a>

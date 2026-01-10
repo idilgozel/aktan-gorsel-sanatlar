@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { site } from "../content/site";
 import { Lang, t } from "../lib/i18n";
 import { routes } from "../lib/routes";
 import Container from "./Container";
@@ -30,12 +31,12 @@ export default function Header({ lang }: { lang: Lang }) {
               <span />
             </button>
             <nav className={`site-nav${isOpen ? " open" : ""}`}>
-              <NavLink href={nav.about} label={t(lang, { tr: "Biz Kimiz", en: "About" })} />
-              <NavLink href={nav.services} label={t(lang, { tr: "Hizmetler", en: "Services" })} />
-              <NavLink href={nav.projects} label={t(lang, { tr: "Projeler", en: "Projects" })} />
-              <NavLink href={nav.gallery} label={t(lang, { tr: "Galeri", en: "Gallery" })} />
-              <NavLink href={nav.articles} label={t(lang, { tr: "Yazilar", en: "Articles" })} />
-              <NavLink href={nav.contact} label={t(lang, { tr: "Iletisim", en: "Contact" })} />
+              <NavLink href={nav.about} label={t(lang, site.nav.about)} />
+              <NavLink href={nav.services} label={t(lang, site.nav.services)} />
+              <NavLink href={nav.projects} label={t(lang, site.nav.projects)} />
+              <NavLink href={nav.gallery} label={t(lang, site.nav.gallery)} />
+              <NavLink href={nav.articles} label={t(lang, site.nav.articles)} />
+              <NavLink href={nav.contact} label={t(lang, site.nav.contact)} />
             </nav>
             <LanguageSwitch lang={lang} />
           </div>
