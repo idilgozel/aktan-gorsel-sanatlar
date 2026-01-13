@@ -36,12 +36,12 @@ export const site = {
     email: "hello@aktanvisual.com",
     phone: "+90 (000) 000 00 00",
     address: {
-      tr: "Istanbul / Ankara",
+      tr: "İstanbul / Ankara",
       en: "Istanbul / Ankara",
     },
   } as ContactInfo,
   social: {
-    instagram: "#",
+    instagram: "https://www.instagram.com/aktan_gorsel_sanatlar/",
     x: "#",
     youtube: "#",
   } as SocialLinks,
@@ -50,8 +50,8 @@ export const site = {
     services: { tr: "Hizmetler", en: "Services" },
     projects: { tr: "Projeler", en: "Projects" },
     gallery: { tr: "Galeri", en: "Gallery" },
-    articles: { tr: "Yazilar", en: "Articles" },
-    contact: { tr: "Iletisim", en: "Contact" },
+    articles: { tr: "Yazılar", en: "Articles" },
+    contact: { tr: "İletişim", en: "Contact" },
     kvkk: { tr: "KVKK", en: "Privacy" },
   } as NavLabels,
 };

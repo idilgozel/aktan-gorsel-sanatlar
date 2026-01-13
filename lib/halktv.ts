@@ -112,6 +112,11 @@ export async function fetchAllArticles() {
   return articles;
 }
 
+export async function fetchLatestArticles(limit: number) {
+  const articles = await fetchAllArticles();
+  return articles.slice(0, Math.max(0, limit));
+}
+
 export function getAuthorUrl() {
   return BASE_URL;
 }

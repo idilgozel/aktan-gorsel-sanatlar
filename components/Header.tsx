@@ -23,7 +23,7 @@ export default function Header({ lang }: { lang: Lang }) {
               className="nav-toggle"
               type="button"
               aria-expanded={isOpen}
-              aria-label={t(lang, { tr: "Menu", en: "Menu" })}
+              aria-label={t(lang, { tr: "Menü", en: "Menu" })}
               onClick={() => setIsOpen((open) => !open)}
             >
               <span />
